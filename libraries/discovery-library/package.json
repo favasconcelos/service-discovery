@@ -1,0 +1,21 @@
+{
+  "name": "@workspace/discovery-library",
+  "type": "module",
+  "exports": {
+    ".": "./lib.ts",
+    "./http": "./http.ts",
+    "./discovery": "./discovery.ts"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/express": "4.17.21",
+    "@types/node-cron": "3.0.11"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "node-cron": "3.0.3"
+  }
+}

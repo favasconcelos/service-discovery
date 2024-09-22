@@ -1,0 +1,12 @@
+{
+  "name": "workspace",
+  "type": "module",
+  "workspaces": ["frontends/*", "backends/*", "libraries/*"],
+  "scripts": {
+    "dev": "bun --filter '*' dev"
+  },
+  "dependencies": {
+    "@biomejs/biome": "1.9.2"
+  },
+  "trustedDependencies": ["@biomejs/biome", "esbuild"]
+}
