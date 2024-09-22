@@ -1,7 +1,8 @@
 import type { Application } from 'express';
 import cron from 'node-cron';
 
-import { request } from './request';
+import { DISCOVERY_SERVICE, HEARTBEAT_CRON } from './constants';
+import http from './http';
 
 interface Service {
   name: string;
@@ -11,23 +12,15 @@ interface Service {
 }
 
 export function register(service: Service) {
-  return request({
-    url: 'http://localhost:9000/discovery/register',
-    method: 'POST',
-    payload: service,
-  });
+  return http.post({ service: DISCOVERY_SERVICE, path: 'register', payload: service });
 }
 
 export function heartbeat(service: Service) {
-  return request({
-    url: 'http://localhost:9000/discovery/heartbeat',
-    method: 'POST',
-    payload: service,
-  });
+  return http.post({ service: DISCOVERY_SERVICE, path: 'heartbeat', payload: service });
 }
 
 export async function startHeartbeat(service: Service) {
-  cron.schedule('*/5 * * * * *', async () => {
+  cron.schedule(HEARTBEAT_CRON, async () => {
     try {
       await heartbeat(service);
     } catch {
