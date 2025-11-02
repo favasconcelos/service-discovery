@@ -1,8 +1,8 @@
-import type { Application } from 'express';
-import cron from 'node-cron';
+import type { Application } from "express";
+import cron from "node-cron";
 
-import { DISCOVERY_SERVICE, HEARTBEAT_CRON } from './constants';
-import http from './http';
+import { DISCOVERY_SERVICE, HEARTBEAT_CRON } from "./constants";
+import http from "./http";
 
 interface Service {
   name: string;
@@ -12,11 +12,19 @@ interface Service {
 }
 
 export function register(service: Service) {
-  return http.post({ service: DISCOVERY_SERVICE, path: 'register', payload: service });
+  return http.post({
+    path: "register",
+    payload: service,
+    service: DISCOVERY_SERVICE,
+  });
 }
 
 export function heartbeat(service: Service) {
-  return http.post({ service: DISCOVERY_SERVICE, path: 'heartbeat', payload: service });
+  return http.post({
+    path: "heartbeat",
+    payload: service,
+    service: DISCOVERY_SERVICE,
+  });
 }
 
 export async function startHeartbeat(service: Service) {
@@ -30,7 +38,15 @@ export async function startHeartbeat(service: Service) {
 }
 
 export async function listen(app: Application, service: Service) {
-  await new Promise<void>((resolve) => app.listen(service.port, resolve));
+  await new Promise<void>((resolve, reject) =>
+    app.listen(service.port, (error?: Error) => {
+      if (error) {
+        return reject(error);
+      }
+      console.log(`${service.name} listening on port http://${service.host}:${service.port}`);
+      resolve();
+    }),
+  );
   await register(service);
   startHeartbeat(service);
 }

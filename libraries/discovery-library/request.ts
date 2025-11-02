@@ -1,5 +1,5 @@
 async function parseResponse(response: Response) {
-  if (response.headers.get('content-type')?.includes('application/json')) {
+  if (response.headers.get("content-type")?.includes("application/json")) {
     return response.json();
   }
   return response.text();
@@ -7,8 +7,8 @@ async function parseResponse(response: Response) {
 
 export async function request({ url, method, payload }: { url: string; method: string; payload?: unknown }) {
   const options: RequestInit = {
+    headers: { "Content-Type": "application/json" },
     method,
-    headers: { 'Content-Type': 'application/json' },
     signal: AbortSignal.timeout(5000),
   };
   if (payload) {

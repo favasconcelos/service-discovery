@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-
-import { getUser, getUsers } from '@workspace/user-library';
+import { getUser, getUsers } from "@workspace/user-library";
+import { useEffect, useState } from "react";
 
 interface User {
   id: string;
@@ -9,11 +8,7 @@ interface User {
   age: number;
 }
 
-function UserList({
-  loading,
-  users,
-  onSelect,
-}: { loading: boolean; users: Array<User>; onSelect: (user: User | null) => void }) {
+function UserList({ loading, users, onSelect }: { loading: boolean; users: Array<User>; onSelect: (user: User | null) => void }) {
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -21,7 +16,7 @@ function UserList({
   return (
     <div className="border rounded bg-gray-800 flex flex-col gap-2">
       {users.map((user) => (
-        <button key={user.id} type="button" className="hover:bg-gray-700 p-4 text-start" onClick={() => onSelect(user)}>
+        <button className="hover:bg-gray-700 p-4 text-start" key={user.id} onClick={() => onSelect(user)} type="button">
           {user.name}
         </button>
       ))}
@@ -84,7 +79,7 @@ export function App() {
   return (
     <div className="w-screen h-screen bg-gray-950 text-white">
       <div className="flex flex-col gap-4 container mx-auto py-10">
-        <UserList loading={loadingUsers} users={users} onSelect={setUser} />
+        <UserList loading={loadingUsers} onSelect={setUser} users={users} />
         {user ? <UserView loading={loadingUser} user={user} /> : null}
       </div>
     </div>

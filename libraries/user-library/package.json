@@ -1,14 +1,15 @@
 {
-  "name": "@workspace/user-library",
-  "type": "module",
-  "main": "lib.ts",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.6.2"
-  },
   "dependencies": {
     "@workspace/discovery-library": "workspace:*"
-  }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.2",
+    "@types/bun": "latest"
+  },
+  "main": "lib.ts",
+  "name": "@workspace/user-library",
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "type": "module"
 }

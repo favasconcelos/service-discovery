@@ -1,0 +1,13 @@
+{
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "extends": "//",
+  "linter": {
+    "domains": {
+      "react": "recommended"
+    }
+  }
+}
