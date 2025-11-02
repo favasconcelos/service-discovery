@@ -1,42 +1,30 @@
-# Project Overview
+# service-discovery
 
-This project is a multi-frontend workspace built using React, TypeScript, and Vite. It consists of multiple frontends, including a user frontend and an order frontend, as well as a discovery service and several libraries.
+A small monorepo demonstrating multiple frontends and services (React + TypeScript + Vite).
 
-## Getting Started
+## Docs
 
-To run the project, follow these steps:
+Detailed documentation is in the `docs/` folder:
 
-### Install Dependencies
+- `docs/SETUP.md` — setup & running the project
+- `docs/STRUCTURE.md` — project structure and component responsibilities
 
-Run the following command in the root directory of the project:
-```bash
-bun install
-```
-### Start the Development Server
+## Quick start
 
-Run the following command in the root directory of the project:
-```bash
-bun dev
-```
+1. Install dependencies:
 
-## Frontends
+    bun install
 
-The project includes the following frontends:
+2. Start development (runs Vite + services as configured):
 
-* User Frontend: `frontends/user-frontend`
-* Order Frontend: `frontends/order-frontend`
+    bun dev
 
-## Backends
+## Layout (top-level)
 
-The project includes the following backends:
+- `frontends/` — user and order frontends
+- `backends/` — user, order and discovery services
+- `libraries/` — shared utilities
+- `docs/` — project documentation (see above)
 
-* User Service: `backends/user-service`
-* Order Service: `backends/order-service`
-* Discovery Service: `backends/discovery-service`
+For more details, open the markdown files in `docs/`.
 
-## Libraries
-
-The project includes the following libraries:
-
-* User Library: `libraries/user-library`
-* Discovery Library: `libraries/discovery-library`
