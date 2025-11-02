@@ -6,7 +6,6 @@
     "dev": "bun --filter '*' dev"
   },
   "dependencies": {
-    "@biomejs/biome": "1.9.2"
-  },
-  "trustedDependencies": ["@biomejs/biome", "esbuild"]
+    "@biomejs/biome": "2.3.2"
+  }
 }
