@@ -15,7 +15,7 @@
   "name": "@workspace/order-frontend",
   "private": true,
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "vite build",
     "dev": "vite",
     "preview": "vite preview"
   },

@@ -53,8 +53,8 @@ app.post("/discovery/heartbeat", (req: CustomRequest<HeartbeatDTO>, res: Respons
   res.status(200).json(service);
 });
 
-app.all("/discovery/", (req: Request, res: Response) => {
-  const discoveryPath = req.params[0];
+app.all(/^\/discovery\/(.*)$/, (req: Request, res: Response) => {
+  const discoveryPath = req.params["0"] ?? "";
   const [serviceName, ...rest] = discoveryPath.split("/");
   const service = services[serviceName];
   if (!service) {
