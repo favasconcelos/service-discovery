@@ -3,7 +3,7 @@
     "@workspace/discovery-library": "workspace:*"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.2",
+    "@biomejs/biome": "2.3.4",
     "@types/bun": "latest"
   },
   "main": "lib.ts",
